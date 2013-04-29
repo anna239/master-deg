@@ -6,14 +6,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="740b29b2-dd66-4aaf-ba95-4a8076e5724e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ant.xml" afterPath="$PROJECT_DIR$/.idea/ant.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" id="740b29b2-dd66-4aaf-ba95-4a8076e5724e" name="Default" comment="added build script">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/annotations/build.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="immutability.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="740b29b2-dd66-4aaf-ba95-4a8076e5724e" time="1367243398894" ignored="false" />
+    <file path="/Dummy.txt" changelist="740b29b2-dd66-4aaf-ba95-4a8076e5724e" time="1367243419721" ignored="false" />
     <file path="/AsClass.java" changelist="740b29b2-dd66-4aaf-ba95-4a8076e5724e" time="1364228873490" ignored="false" />
     <file path="/Const.java" changelist="740b29b2-dd66-4aaf-ba95-4a8076e5724e" time="1364228912086" ignored="false" />
     <file path="/Immutable.java" changelist="740b29b2-dd66-4aaf-ba95-4a8076e5724e" time="1364228976357" ignored="false" />
@@ -161,7 +160,7 @@
       <file leaf-file-name="build.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/annotations/build.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="57" selection-start="519" selection-end="519" vertical-scroll-proportion="0.37777779">
+            <state line="17" column="103" selection-start="519" selection-end="519" vertical-scroll-proportion="0.37777779">
               <folding />
             </state>
           </provider>
@@ -513,7 +512,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="added build script" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -526,6 +525,7 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="added build script" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -609,7 +609,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/annotations/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="57" selection-start="519" selection-end="519" vertical-scroll-proportion="0.37777779">
+        <state line="17" column="103" selection-start="519" selection-end="519" vertical-scroll-proportion="0.37777779">
           <folding />
         </state>
       </provider>

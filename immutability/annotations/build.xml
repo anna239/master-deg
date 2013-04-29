@@ -1,0 +1,18 @@
+<project>
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <property name="classes.dir" value="build/classes"/>
+    <property name="jar.dir" value="build/jar"/>
+
+    <target name="compile" depends="clean">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="src" destdir="${classes.dir}"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="${jar.dir}"/>
+        <jar destfile="${jar.dir}/immutability.jar" basedir="${classes.dir}"/>
+    </target>
+</project>

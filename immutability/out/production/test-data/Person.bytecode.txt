@@ -1,0 +1,116 @@
+// class version 50.0 (50)
+// access flags 0x21
+public class Person {
+
+  // compiled from: Person.java
+
+  // access flags 0x12
+  private final Ljava/lang/String; name
+
+  // access flags 0x12
+  private final Ljava/util/Date; dateOfBurs
+
+  // access flags 0x2
+  private LAddress; address
+
+  // access flags 0x1
+  public <init>(Ljava/lang/String;Ljava/util/Date;LAddress;)V
+   L0
+    LINENUMBER 9 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+   L1
+    LINENUMBER 10 L1
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD Person.name : Ljava/lang/String;
+   L2
+    LINENUMBER 11 L2
+    ALOAD 0
+    ALOAD 2
+    PUTFIELD Person.dateOfBurs : Ljava/util/Date;
+   L3
+    LINENUMBER 12 L3
+    ALOAD 0
+    ALOAD 3
+    PUTFIELD Person.address : LAddress;
+   L4
+    LINENUMBER 13 L4
+    RETURN
+   L5
+    LOCALVARIABLE this LPerson; L0 L5 0
+    LOCALVARIABLE name Ljava/lang/String; L0 L5 1
+    LOCALVARIABLE dateOfBurs Ljava/util/Date; L0 L5 2
+    LOCALVARIABLE address LAddress; L0 L5 3
+    MAXSTACK = 2
+    MAXLOCALS = 4
+
+  // access flags 0x1
+  public getAddress()LAddress;
+   L0
+    LINENUMBER 16 L0
+    ALOAD 0
+    GETFIELD Person.address : LAddress;
+    ARETURN
+   L1
+    LOCALVARIABLE this LPerson; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public setAddress(LAddress;)V
+   L0
+    LINENUMBER 20 L0
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD Person.address : LAddress;
+   L1
+    LINENUMBER 21 L1
+    RETURN
+   L2
+    LOCALVARIABLE this LPerson; L0 L2 0
+    LOCALVARIABLE address LAddress; L0 L2 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public setPhoneNumber(Ljava/lang/String;)V
+   L0
+    LINENUMBER 24 L0
+    ALOAD 0
+    GETFIELD Person.address : LAddress;
+    ALOAD 1
+    INVOKEVIRTUAL Address.setPhoneNumber (Ljava/lang/String;)V
+   L1
+    LINENUMBER 25 L1
+    RETURN
+   L2
+    LOCALVARIABLE this LPerson; L0 L2 0
+    LOCALVARIABLE phoneNumber Ljava/lang/String; L0 L2 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public getDateOfBurs()Ljava/util/Date;
+   L0
+    LINENUMBER 28 L0
+    ALOAD 0
+    GETFIELD Person.dateOfBurs : Ljava/util/Date;
+    ARETURN
+   L1
+    LOCALVARIABLE this LPerson; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public getName()Ljava/lang/String;
+   L0
+    LINENUMBER 32 L0
+    ALOAD 0
+    GETFIELD Person.name : Ljava/lang/String;
+    ARETURN
+   L1
+    LOCALVARIABLE this LPerson; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+}

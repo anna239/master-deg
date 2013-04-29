@@ -1,0 +1,126 @@
+// class version 50.0 (50)
+// access flags 0x21
+public class Person {
+
+  // compiled from: Person.java
+
+  // access flags 0x12
+  private final Ljava/lang/String; name
+
+  // access flags 0x12
+  private final Ljava/util/Date; dateOfBurs
+  @Lorg/jetbrains/immutability/annotations/AsClass;() // invisible
+
+  // access flags 0x2
+  private LAddress; address
+  @Lorg/jetbrains/immutability/annotations/AsClass;() // invisible
+
+  // access flags 0x1
+  public <init>(Ljava/lang/String;Ljava/util/Date;LAddress;)V
+    @Lorg/jetbrains/immutability/annotations/AsClass;() // invisible, parameter 1
+    @Lorg/jetbrains/immutability/annotations/AsClass;() // invisible, parameter 2
+   L0
+    LINENUMBER 14 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+   L1
+    LINENUMBER 15 L1
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD Person.name : Ljava/lang/String;
+   L2
+    LINENUMBER 16 L2
+    ALOAD 0
+    ALOAD 2
+    PUTFIELD Person.dateOfBurs : Ljava/util/Date;
+   L3
+    LINENUMBER 17 L3
+    ALOAD 0
+    ALOAD 3
+    PUTFIELD Person.address : LAddress;
+   L4
+    LINENUMBER 18 L4
+    RETURN
+   L5
+    LOCALVARIABLE this LPerson; L0 L5 0
+    LOCALVARIABLE name Ljava/lang/String; L0 L5 1
+    LOCALVARIABLE dateOfBurs Ljava/util/Date; L0 L5 2
+    LOCALVARIABLE address LAddress; L0 L5 3
+    MAXSTACK = 2
+    MAXLOCALS = 4
+
+  // access flags 0x1
+  public getAddress()LAddress;
+  @Lorg/jetbrains/immutability/annotations/Const;() // invisible
+  @Lorg/jetbrains/immutability/annotations/AsClass;() // invisible
+   L0
+    LINENUMBER 23 L0
+    ALOAD 0
+    GETFIELD Person.address : LAddress;
+    ARETURN
+   L1
+    LOCALVARIABLE this LPerson; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public setAddress(LAddress;)V
+    @Lorg/jetbrains/immutability/annotations/AsClass;() // invisible, parameter 0
+   L0
+    LINENUMBER 27 L0
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD Person.address : LAddress;
+   L1
+    LINENUMBER 28 L1
+    RETURN
+   L2
+    LOCALVARIABLE this LPerson; L0 L2 0
+    LOCALVARIABLE address LAddress; L0 L2 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public setPhoneNumber(Ljava/lang/String;)V
+   L0
+    LINENUMBER 31 L0
+    ALOAD 0
+    GETFIELD Person.address : LAddress;
+    ALOAD 1
+    INVOKEVIRTUAL Address.setPhoneNumber (Ljava/lang/String;)V
+   L1
+    LINENUMBER 32 L1
+    RETURN
+   L2
+    LOCALVARIABLE this LPerson; L0 L2 0
+    LOCALVARIABLE phoneNumber Ljava/lang/String; L0 L2 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public getDateOfBurs()Ljava/util/Date;
+  @Lorg/jetbrains/immutability/annotations/Const;() // invisible
+  @Lorg/jetbrains/immutability/annotations/ReadOnly;() // invisible
+   L0
+    LINENUMBER 37 L0
+    ALOAD 0
+    GETFIELD Person.dateOfBurs : Ljava/util/Date;
+    ARETURN
+   L1
+    LOCALVARIABLE this LPerson; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public getName()Ljava/lang/String;
+  @Lorg/jetbrains/immutability/annotations/Const;() // invisible
+   L0
+    LINENUMBER 42 L0
+    ALOAD 0
+    GETFIELD Person.name : Ljava/lang/String;
+    ARETURN
+   L1
+    LOCALVARIABLE this LPerson; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+}

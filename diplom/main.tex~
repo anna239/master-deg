@@ -18,7 +18,7 @@
 
 \usepackage{geometry}
 \geometry{left=3cm}
-\geometry{right=1.5cm}
+\geometry{right=1.8cm}
 \geometry{top=1.5cm}
 \geometry{bottom=2cm}
 \renewcommand{\baselinestretch}{1.5}
@@ -53,9 +53,8 @@
 %\input{title}
 \input{introduction}
 \input{implementation}
-%\input{testing}
-%\input{conclusion}
-%\input{bibliography}
+\input{conclusion}
+\input{bibliography}
 
 \tableofcontents
 

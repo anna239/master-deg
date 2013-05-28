@@ -75,11 +75,11 @@ void Foo(const S & s)
 
 Несмотря на то, что s передается в метод Foo() как константый (что также делает константными всех его членов), объект, доступный через s.ptr можно изменять. Таким образом, в C++ нет поддержки глубокой неизменяемости.
 
-\textit{добавить строгое определение глубокой неизменяемсти и картиночку}
+\begin{Def}\label{deep_immutablity}
+Глубокая (транзитивная) неизменяемость характеризует следующее свойство: если объект неизменяем, то неизменяемы также и все объекты, доступные из него по ссылкам.
+\end{Def}
 
 Также в С++ невозможно вернуть ссылку, чья изменяемость зависит от изменяемости this. Поэтому, например, во всех колелкциях STL содержатся по две перегруженные версии iterator и operator[], которые, фактически, делают одно и то же. 
-
-\textit{ссылка на источник}
 
 \subsection{Java}
 
@@ -158,7 +158,7 @@ public class ListContainer{
 
 С одной стороны, этот подход позволяет избежать ошибок, связанных с неправомерным изменением объектов во время выполнения программы, но с дургой он требует гораздо более тщательного продумывания интерфейсов, а также более трудоемок в реализации. 
 
-\textit{добавить про документацию}
+Часто в документации к Java-коду можно встретить информацию о том, что фактически объект, возвращаемый каким-либо методом является неизменяемым. Или, например, в документации к интрфейсу Map сказано, что "необходима большая осторожность при испрользовании изменяемых объектов в качестве ключей". Наличие подобной информации в документации показывает, что выразительных средств языка не хватает для выражения утвержедний об изменяемости объектов и что, если бы подобные средства существовали, они могли бы быть востребованы.
 
 \subsection{C\#}
 
@@ -228,35 +228,6 @@ public class ReadOnlyTest
       
    }
 }	
-\end{lstlisting}
-
-\subsection{D}
-
-\textit{нужно ли тут объяснить что вообще за язык такой - D? И если нужно, то не нужно ли то же самое делать про остальные яызки?}
-
-Во второй версии языка прогаммирования D существует два ключевых слова для выражения неизменяемости: const и immutable. Ключевое слово immutable означает, что не существует ссылки, через которую данные могут быть изменены. const обозначает, что по данной ссылке данные менять нельзя, но может существовать ссылка, через которую данные могут быть изменены. 
-
-\begin{lstlisting}[caption=const vs immutable, label=code:d_const_vs_immutable]
-    int[] foo = new int[5];     // foo is mutable.
-    const int[] bar = foo;      // bar is a const view of mutable data.
-    immutable int[] baz = foo;  // Error:  all views of immutable data must be immutable.
- 
-    immutable int[] nums = new immutable(int)[5];  // No mutable reference to nums may be created.
-    const int[] constNums = nums;                  // Immutable is implicitly convertible to const.
-    int[] mutableNums = nums;                      // Error:  Cannot create a mutable view of immutable data.
-\end{lstlisting}
-
-В отличае от const в C++, const и immutable в D обеспечивают полноценную глубокую неизменяемость, то есть, любые данные, доступные через const или immutbale объект, также константны или неизменяемы, соответсвенно.
-
-\begin{lstlisting}[caption=const vs immutable, label=code:d_const_vs_immutable]
-class Foo {
-    Foo next;
-    int num;
-}
- 
-    immutable Foo foo = new immutable(Foo);
-    foo.next.num = 5;  // Error:  foo.next is of type immutable(Foo).
-                       // foo.next.num is of type immutable(int).
 \end{lstlisting}
 
 \subsection{Javari}
@@ -369,6 +340,35 @@ Javari предоставляет инструмент под названием
 Immutablility Generic Java (IGJ) -- это расширение языка Java, которое позволяет выражать утверждения о неизменяемости объектов без внесения изменений в синтаксис Java, для этого IGJ использует типовые параеметры и аннотации. В IGJ каждый класс имеет дополнительный типовый параметр, который может быть Immutable, Mutable или ReadOnly. IGJ поддерживает как объектную так и ссылочную неизменяемость. IGJ также разрешает ковариантные изменения типовых параметров в безопасной форме, например, неизменяемый список целых чисел является потомком неизменяемого списка чисел.
 
 \textit{еще тут много всяких ништяков + плюсы, минусы, подводные камни}
+
+\subsection{D}
+
+Подход, похоий на тот, что был описан в IGJ используется в объекно-ориентированном языке D~\footnote{http://dlang.org/}. В D концепции объектной и ссылочной неизменяемости поддерживаются на уровне языка.
+
+Во второй версии этого языка существует два ключевых слова для выражения неизменяемости: const и immutable. Ключевое слово immutable означает, что не существует ссылки, через которую данные могут быть изменены. const обозначает, что по данной ссылке данные менять нельзя, но может существовать ссылка, через которую данные могут быть изменены. 
+
+\begin{lstlisting}[caption=const vs immutable, label=code:d_const_vs_immutable]
+    int[] foo = new int[5];     // foo is mutable.
+    const int[] bar = foo;      // bar is a const view of mutable data.
+    immutable int[] baz = foo;  // Error:  all views of immutable data must be immutable.
+ 
+    immutable int[] nums = new immutable(int)[5];  // No mutable reference to nums may be created.
+    const int[] constNums = nums;                  // Immutable is implicitly convertible to const.
+    int[] mutableNums = nums;                      // Error:  Cannot create a mutable view of immutable data.
+\end{lstlisting}
+
+В отличае от const в C++, const и immutable в D обеспечивают полноценную глубокую неизменяемость, то есть, любые данные, доступные через const или immutbale объект, также константны или неизменяемы, соответсвенно.
+
+\begin{lstlisting}[caption=const vs immutable, label=code:d_const_vs_immutable]
+class Foo {
+    Foo next;
+    int num;
+}
+ 
+    immutable Foo foo = new immutable(Foo);
+    foo.next.num = 5;  // Error:  foo.next is of type immutable(Foo).
+                       // foo.next.num is of type immutable(int).
+\end{lstlisting}
 
 \subsection{Uniqueness and Reference Immutability for Safe Parallelism}
 

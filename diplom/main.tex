@@ -1,4 +1,4 @@
-\documentclass[a4paper,14pt]{report}
+\documentclass[a4paper,14pt]{extreport}
 
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -9,8 +9,10 @@
 
 \usepackage{hyperref}
 
-\usepackage[dvips]{graphicx}
-\graphicspath{{images/}}
+\usepackage{graphicx}	
+\usepackage{bmpsize}
+\usepackage{epstopdf}
+\graphicspath{{img/}}
 
 \usepackage{titlesec}
 \usepackage{listings}
@@ -26,7 +28,8 @@
 \lstset{numbers=left,
         frame=single,
         breaklines=true,
-        breakatwhitespace=true}
+        breakatwhitespace=true,
+        basicstyle=\ttfamily\small}
         
 %\hyphenpenalty=10000
 
@@ -51,11 +54,12 @@
 \newtheorem{Rule}{Правило}[section]
 
 %\input{title}
+\tableofcontents
 \input{introduction}
 \input{implementation}
 \input{conclusion}
 \input{bibliography}
 
-\tableofcontents
+
 
 \end{document}

@@ -1,0 +1,10 @@
+\addcontentsline{toc}{chapter}{Литература}
+\begin{thebibliography}{99}
+
+    \bibitem{Tschantz2006}
+    Tschantz, M. S. (2006). Javari : Adding Reference Immutability to Java by.
+
+    \bibitem{Zibin2007}
+	Zibin, Y., Potanin, A., Artzi, S., Kiezun, A., Ernst, M. D., & Kie, A. (2007). Object and Reference Immutability using Java Generics.
+
+\end{thebibliography}

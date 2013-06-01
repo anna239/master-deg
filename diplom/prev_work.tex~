@@ -192,7 +192,8 @@ int size = cVals.size(); // OK: getting size is permitted for
                          // immutable list
 cVals.add("Hello!");     // Error: this code will be successfuly 
                          // compiled, but will cause 
-                         // UnsupportedOperationException on runtime	
+                         // UnsupportedOperationException 
+                         // on runtime	
 \end{lstlisting}
 
 Таким образом, в стандратной библиотеке Java неизменяемые коллеции реализованы просто как обертки над стандартыми интерфейсами, у которых переопределены изменяющие объект методы. Так как при вызове Collections.unmodifiableList() копирования элементов не происходит, то все изменения, сделанные в исходдной коллекции, будут "видны" в containerValues. Таким образом, результат работы метода ListContainer.getValues() является в некотором смысле неизменяемой ссылкой -- через эту ссылку нельзя менять объект, но существуют другие ссылки на данный объект, через которые его можно менять.

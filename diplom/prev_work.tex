@@ -192,7 +192,8 @@ int size = cVals.size(); // OK: getting size is permitted for
                          // immutable list
 cVals.add("Hello!");     // Error: this code will be successfuly 
                          // compiled, but will cause 
-                         // UnsupportedOperationException on runtime	
+                         // UnsupportedOperationException 
+                         // on runtime	
 \end{lstlisting}
 
 Таким образом, в стандратной библиотеке Java неизменяемые коллеции реализованы просто как обертки над стандартыми интерфейсами, у которых переопределены изменяющие объект методы. Так как при вызове Collections.unmodifiableList() копирования элементов не происходит, то все изменения, сделанные в исходдной коллекции, будут "видны" в containerValues. Таким образом, результат работы метода ListContainer.getValues() является в некотором смысле неизменяемой ссылкой -- через эту ссылку нельзя менять объект, но существуют другие ссылки на данный объект, через которые его можно менять.
@@ -299,7 +300,8 @@ class Foo {
 Javari также позволяет добавлять модификаторы изменяемости к типовым параметрам:
 
 \begin{lstlisting}[caption=Модификаторы изменяемости в типовых параметрах, label=code:javari_generic_local]
-/*mutable*/ List</*mutable*/ Date> ld1; // add/remove and mutate elements 
+/*mutable*/ List</*mutable*/ Date> ld1; // add/remove and 
+                                        // mutate elements 
 /*mutable*/ List<readonly Date> ld2; // add/remove 
 readonly List</*mutable*/ Date> ld3; // mutate elements 
 readonly List<readonly Date> ld4; // (neither)
@@ -424,12 +426,17 @@ class Graph<I extends ReadOnly> {
 
 \begin{lstlisting}[caption=const vs immutable, label=code:d_const_vs_immutable]
 int[] foo = new int[5];     // foo is mutable.
-const int[] bar = foo;      // bar is a const view of mutable data.
-immutable int[] baz = foo;  // Error:  all views of immutable data must be immutable.
+const int[] bar = foo;      // bar is a const view of 
+                            // mutable data.
+immutable int[] baz = foo;  // Error:  all views of immutable 
+                            // data must be immutable.
  
-immutable int[] nums = new immutable(int)[5];  // No mutable reference to nums may be created.
-const int[] constNums = nums;                  // Immutable is implicitly convertible to const.
-int[] mutableNums = nums;                      // Error:  Cannot create a mutable view of immutable data.
+// No mutable reference to nums may be created.
+immutable int[] nums = new immutable(int)[5]; 
+// Immutable is implicitly convertible to const.
+const int[] constNums = nums;         
+// Error:  Cannot create a mutable view of immutable data.         
+int[] mutableNums = nums;                      
 \end{lstlisting}
 
 В отличае от const в C++, const и immutable в D обеспечивают полноценную глубокую неизменяемость, то есть, любые данные, доступные через const или immutbale объект, также константны или неизменяемы, соответсвенно.
@@ -441,8 +448,9 @@ class Foo {
 }
  
 immutable Foo foo = new immutable(Foo);
-foo.next.num = 5;  // Error:  foo.next is of type immutable(Foo).
-                   // foo.next.num is of type immutable(int).
+foo.next.num = 5;  // Error:  foo.next is of type 
+                   // immutable(Foo). foo.next.num 
+                   // is of type immutable(int).
 \end{lstlisting}
 
 \subsection{Безопасное параллельное выполнение при помощи контроля за уникальностью и ссылочной неизменяемостью.}

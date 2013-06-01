@@ -7,6 +7,8 @@
 
 \usepackage{amsthm}
 
+\usepackage{rotating}
+
 \usepackage{hyperref}
 
 \usepackage{graphicx}	
@@ -20,7 +22,7 @@
 
 \usepackage{geometry}
 \geometry{left=3cm}
-\geometry{right=1.8cm}
+\geometry{right=1.5cm}
 \geometry{top=1.5cm}
 \geometry{bottom=2cm}
 \renewcommand{\baselinestretch}{1.5}
@@ -54,7 +56,6 @@
 \newtheorem{Rule}{Правило}[section]
 
 %\input{title}
-\input{abstract}
 \tableofcontents
 \input{introduction}
 \input{implementation}

@@ -1,0 +1,14 @@
+\transwipe 
+\frametitle{Сравнение с существующими решениями}
+\begin{center}
+\begin{tabular}{ | p{3.5cm} | p{0.9cm} | p{0.9cm} | p{0.9cm} | p{0.9cm} | p{0.9cm} | p{1.1cm} |}
+\hline  & C++ & Java & Javari & IGJ & Gordon 2012 & \textbf{эта работа} \\
+\hline глубокая неизменяемость & +/- & - & + & + & + & \textbf{+} \\
+\hline полиморфизм & - & - & + & + & + & \textbf{+} \\
+\hline объектная неизменяемость & + & + & - & + & + & \textbf{+} \\
+\hline ссылочная неизменяемость & - & - & + & + & + & \textbf{+} \\
+\hline циклы неизменяемых объектов & - & - & - & - & + & \textbf{+} \\
+\hline автоматическое аннотирование библиотек & N/A & N/A & + & - & - & \textbf{+} \\
+\hline
+    \end{tabular}
+\end{center}

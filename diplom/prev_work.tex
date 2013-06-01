@@ -15,11 +15,12 @@ struct S
 
 const S const_s;
 const_s.val = 42;      // Error: const_s was declared as const
-int i  = const_s.val;  // OK: field val is accessed for reading, 
-                           // not for writing
+int i  = const_s.val;  // OK: field val is accessed for  
+                       // reading, not for writing
 
 const S non_const_s;
-non_const_s.val = 42;  // OK: non_const_s was not declared as const
+non_const_s.val = 42;  // OK: non_const_s was not 
+                       // declared as const
 	
 
 \end{lstlisting}
@@ -40,14 +41,17 @@ void Foo( S * ptr,
     ptr->val = 0;    // OK: modifies the "pointee" data
     ptr  = NULL;     // OK: modifies the pointer
  
-    ptrToConst->val = 0; // Error: cannot modify the "pointee" data
+    ptrToConst->val = 0; // Error: cannot modify 
+                         // the "pointee" data
     ptrToConst  = NULL;  // OK: modifies the pointer
  
     constPtr->val = 0; // OK: modifies the "pointee" data
     constPtr  = NULL;  // Error: cannot modify the pointer
  
-    constPtrToConst->val = 0; // Error: cannot modify the "pointee" data
-    constPtrToConst  = NULL;  // Error: cannot modify the pointer
+    constPtrToConst->val = 0; // Error: cannot modify 
+                              // the "pointee" data
+    constPtrToConst  = NULL;  // Error: cannot modify 
+                              // the pointer
 }
 \end{lstlisting}
 
@@ -67,7 +71,8 @@ void Foo(const S & s)
     int i  = 42;
     s.val  = i;  // Error: s is const, so val is a const int
     s.ptr  = &i; // Error: s is const, so val is a const int
-    *s.ptr = i;  // OK: the data pointed to by ptr is always mutable
+    *s.ptr = i;  // OK: the data pointed to by ptr 
+                 // is always mutable
 }
 \end{lstlisting}
 
@@ -83,28 +88,30 @@ void Foo(const S & s)
 using System;
 public class ReadOnlyTest 
 {
-   class MyClass 
-   {
-      public int x;
-      public readonly int y = 25; // Initialize a readonly field
-      public readonly int z;
+    class MyClass {
+        public int x;
+        // Initialize a readonly field
+        public readonly int y = 25; 
+        public readonly int z;
+        public MyClass() {
+            // Initialize a readonly instance field            
+            z = 24;   
+        }
 
-      public MyClass() {
-         z = 24;   // Initialize a readonly instance field
-      }
+        public MyClass(int p1, int p2, int p3) {
+            x = p1; 
+            y = p2;   // OK: readonly field can 
+                      // be reassigned in constructor
+            z = p3;
+        }
+    }
 
-      public MyClass(int p1, int p2, int p3) {
-         x = p1; 
-         y = p2;   // OK: readonly field can be reassigned in constructor
-         z = p3;
-      }
-   }
-
-   public static void Main() {        
-      MyClass p2 = new MyClass();
-      p2.x = 55;   // OK: field x is not readonly
-      p2.y = 33;   // Error: field y can't be reassigned, as it is readonly      
-   }
+    public static void Main() {        
+        MyClass p2 = new MyClass();
+        p2.x = 55;   // OK: field x is not readonly
+        p2.y = 33;   // Error: field y can't be 
+                     // reassigned, as it is readonly      
+    }
 }	
 \end{lstlisting}
 
@@ -125,14 +132,16 @@ public class ReadOnlyTest
 
       public MyClass(int p1, int p2) {
          x = p1; 
-         y = p2;   // Error: const field can not be reassigned in constructor        
+         y = p2;   // Error: const field can not be 
+                   // reassigned in constructor        
       }
    }
 
    public static void Main() {        
       MyClass p2 = new MyClass();
       p2.x = 55;   // OK: field x is not readonly
-      p2.y = 33;   // Error: field y can't be reassigned, as it is const
+      p2.y = 33;   // Error: field y can't be reassigned, 
+                   // as it is const
       
    }
 }	
@@ -153,9 +162,11 @@ public class MyClass {
 }
 
 MyClass mc = new MyClass();
-mc.values = new int[100]; // Error: field values was declared final
-mc.values[2] = 4; // OK: values is declared final, but we can still
-                  // change object, referenced by this field.
+mc.values = new int[100]; // Error: field values 
+                          // was declared final
+mc.values[2] = 4; // OK: values is declared final, 
+                  // but we can still change object, 
+                  // referenced by this field.
     
 \end{lstlisting}
 
@@ -176,10 +187,12 @@ public class ListContainer {
 
 \begin{lstlisting}[caption=Использование неизменяемого списка, label=code:java_immutable_list_usage]
 ListContainer container = new ListContainer();
-List<String> containerValues = container.getValues();
-int size = containerValues.size(); // OK: getting size is permitted for immutable list
-containerValues.add("Hello!");     // Error: this code will be successfuly compiled, but 
-	                               // will cause UnsupportedOperationException on runtime	
+List<String> cVals = container.getValues();
+int size = cVals.size(); // OK: getting size is permitted for 
+                         // immutable list
+cVals.add("Hello!");     // Error: this code will be successfuly 
+                         // compiled, but will cause 
+                         // UnsupportedOperationException on runtime	
 \end{lstlisting}
 
 Таким образом, в стандратной библиотеке Java неизменяемые коллеции реализованы просто как обертки над стандартыми интерфейсами, у которых переопределены изменяющие объект методы. Так как при вызове Collections.unmodifiableList() копирования элементов не происходит, то все изменения, сделанные в исходдной коллекции, будут "видны" в containerValues. Таким образом, результат работы метода ListContainer.getValues() является в некотором смысле неизменяемой ссылкой -- через эту ссылку нельзя менять объект, но существуют другие ссылки на данный объект, через которые его можно менять.
@@ -206,8 +219,7 @@ public class ListContainer{
     
     public ImmutableList<String> getValues() {
         return values.toImmutable();
-    }
-    
+    }    
 }
 \end{lstlisting}
 
